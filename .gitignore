@@ -116,7 +116,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-config/dev.js
-config/prod.js
+server/config/dev.js
+server/config/prod.js
 .idea
 test.txt
+ldw_note.txt
