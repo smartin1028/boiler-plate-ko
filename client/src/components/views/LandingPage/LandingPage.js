@@ -1,6 +1,6 @@
 import React from "react";
 
-function RegisterPage() {
+function LandingPage() {
     return (
         <div>
 
@@ -8,4 +8,4 @@ function RegisterPage() {
     )
 }
 
-export default RegisterPage
+export default LandingPage
