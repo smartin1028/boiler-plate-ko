@@ -1,13 +1,18 @@
 const express = require('express');
 const app = express();
-const port = 5000;
+const port = 5500;
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
 const config = require('./server/config/key')
 
 const { auth } = require('./server/middleware/auth')
 const { User } = require('./server/models/User');
-
+console.log("console.log(config)")
+console.log(config)
+console.log("auth")
+console.log(auth)
+console.log("User")
+console.log(User)
 
 // application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended:true}))
@@ -22,6 +27,10 @@ mongoose.connect(config.mongoURI).then(()=> console.log("MongoDB Conneted..."))
     .catch(err => console.log(err))
 app.get('/', (req, res) => {
     res.send('Hello World! 새해 복 많이 받으세요')
+})
+
+app.get('/api/hello', (req, res) => {
+    res.send('안녕하세요')
 })
 
 
@@ -42,7 +51,7 @@ app.post('/api/users/login', (req, res) => {
     // const user = new User(req.body)
     // 요청된 이메일을 데이터베이스에서 있는지 찾는다
     User.findOne({email : req.body.email}, null, null, (err, userInfo)=>{
-
+        console.log("User.findOne")
         if(!userInfo){
             return res.json({
                 loginSuccess : false,
